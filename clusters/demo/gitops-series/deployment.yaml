@@ -19,6 +19,12 @@ spec:
         - name: message
           image: ghcr.io/sngular/gitops-echobot:v0.1.0
           imagePullPolicy: IfNotPresent
+          env:
+            - name: CHARACTER
+              valueFrom:
+                secretKeyRef:
+                  name: secret-text   # se utiliza el secret creado
+                  key: hidden-text
           resources:
             requests:
               cpu: 10m
